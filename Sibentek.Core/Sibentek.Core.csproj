@@ -12,6 +12,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="EntityFramework" Version="6.5.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0-rc.2.24474.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0-rc.2.24474.1" />
       <PackageReference Include="Microsoft.ML" Version="4.0.0-preview.24522.7" />
       <PackageReference Include="Microsoft.ML.FastTree" Version="4.0.0-preview.24522.7" />
     </ItemGroup>
