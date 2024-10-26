@@ -1,4 +1,6 @@
 using ModelTextForApi;
+using Sibentek.Core.Model;
+using Sibentek.DataAccess;
 using sibentek_restful;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,6 +35,29 @@ Console.WriteLine("Log ml: " + resSol.Score[0] * 100);
 
 var app = builder.Build();
 var bot = new TelegramBot("7410806777:AAGVoLLKhd5eqQ13nYCwWjY5o_t6fYlV9nY");
+
+using (var context = new ApplicationDbContext())
+{
+    context.Database.EnsureCreated();
+    
+    // Создание нового пользователя
+    UserMessage user = new UserMessage {Name = "Ancherm"};
+    context.Users.Add(user);
+    context.SaveChanges();
+    
+    // Чтение пользователей
+    var users = context.Users.ToList();
+    Console.WriteLine(string.Join(", ", users));
+
+    // Обновление пользователя
+    var firstUser = context.Users.First();
+    firstUser.Name = "Bob";
+    context.SaveChanges();
+    
+    // Удаление пользователя
+    context.Users.Remove(firstUser);
+    context.SaveChanges();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
