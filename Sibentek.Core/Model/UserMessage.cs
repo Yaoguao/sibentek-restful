@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 namespace Sibentek.Core.Model
 {
     
-    public class User
+    public class UserMessage
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Message { get; set; }
 
 
         public override string ToString()
         {
-            return "" + Id + " " + Name;
+            return "" + Id + " " + Name + " " + Message;
         }
     }
 }

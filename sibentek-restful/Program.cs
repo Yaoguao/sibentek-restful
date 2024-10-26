@@ -19,7 +19,7 @@ using (var context = new ApplicationDbContext())
     context.Database.EnsureCreated();
     
     // Создание нового пользователя
-    User user = new User {Name = "Ancherm"};
+    UserMessage user = new UserMessage {Name = "Ancherm"};
     context.Users.Add(user);
     context.SaveChanges();
     

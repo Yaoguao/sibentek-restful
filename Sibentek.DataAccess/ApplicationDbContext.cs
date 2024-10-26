@@ -5,7 +5,7 @@ namespace Sibentek.DataAccess;
 
 public class ApplicationDbContext : DbContext
 {
-    public DbSet<User> Users { get; set; }
+    public DbSet<UserMessage> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
