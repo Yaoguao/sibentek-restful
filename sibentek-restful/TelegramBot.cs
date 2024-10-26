@@ -78,6 +78,12 @@ namespace sibentek_restful
                               $"\nВозможное решение: {messageResponseDto.RecommendedActions}",
                         cancellationToken: cancellationToken
                     );
+                    
+                    await botClient.SendTextMessageAsync(
+                        chatId: message.Chat.Id,
+                        text: $"Чем могу еще помочь?",
+                        cancellationToken: cancellationToken
+                    );
                 }
             }
         }
