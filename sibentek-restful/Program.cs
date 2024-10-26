@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using ModelTextForApi;
 using Sibentek.Core.Model;
 using Sibentek.DataAccess;
@@ -33,11 +34,18 @@ Console.WriteLine("Log ml: " + resSol.PredictedLabel);
 Console.WriteLine("Log ml: " + resSol.Score[0] * 100);
 // log
 
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite("Data Source=../sibentek-restful/database.db"));
+
+
 var app = builder.Build();
 var bot = new TelegramBot("7410806777:AAGVoLLKhd5eqQ13nYCwWjY5o_t6fYlV9nY");
 
-using (var context = new ApplicationDbContext())
+using (var scope = app.Services.CreateScope())
 {
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    context.Database.Migrate();
+    
     context.Database.EnsureCreated();
     
     // Создание нового пользователя
