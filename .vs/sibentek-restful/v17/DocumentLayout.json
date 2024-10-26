@@ -30,8 +30,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -55,16 +63,7 @@
               "RelativeToolTip": "sibentek-restful\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T16:40:53.953Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "WhenOpened": "2024-10-26T16:40:53.953Z"
             },
             {
               "$type": "Document",
@@ -76,34 +75,31 @@
               "RelativeToolTip": "sibentek-restful\\TelegramBot.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAAQwDoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T16:41:08.834Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-26T16:41:08.834Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "sibentek-restful",
-              "DocumentMoniker": "C:\\Users\\79518\\Source\\Repos\\sibentek-restful\\sibentek-restful\\sibentek-restful.csproj",
+              "Title": "sibentek-restful.csproj",
+              "DocumentMoniker": "C:\\Users\\79518\\source\\repos\\sibentek-restful\\sibentek-restful\\sibentek-restful.csproj",
               "RelativeDocumentMoniker": "sibentek-restful\\sibentek-restful.csproj",
-              "ToolTip": "C:\\Users\\79518\\Source\\Repos\\sibentek-restful\\sibentek-restful\\sibentek-restful.csproj",
+              "ToolTip": "C:\\Users\\79518\\source\\repos\\sibentek-restful\\sibentek-restful\\sibentek-restful.csproj",
               "RelativeToolTip": "sibentek-restful\\sibentek-restful.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-26T16:37:54.903Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-26T16:37:54.903Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Sibentek.Application",
-              "DocumentMoniker": "C:\\Users\\79518\\Source\\Repos\\sibentek-restful\\Sibentek.Application\\Sibentek.Application.csproj",
+              "Title": "Sibentek.Application.csproj",
+              "DocumentMoniker": "C:\\Users\\79518\\source\\repos\\sibentek-restful\\Sibentek.Application\\Sibentek.Application.csproj",
               "RelativeDocumentMoniker": "Sibentek.Application\\Sibentek.Application.csproj",
-              "ToolTip": "C:\\Users\\79518\\Source\\Repos\\sibentek-restful\\Sibentek.Application\\Sibentek.Application.csproj",
+              "ToolTip": "C:\\Users\\79518\\source\\repos\\sibentek-restful\\Sibentek.Application\\Sibentek.Application.csproj",
               "RelativeToolTip": "Sibentek.Application\\Sibentek.Application.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-26T16:37:52.008Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-26T16:37:52.008Z"
             }
           ]
         }
