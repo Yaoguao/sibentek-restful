@@ -71,9 +71,11 @@ namespace sibentek_restful
 
                     var messageResponseDto = userMessageService.CreateMessageResult(userMessageRequestDto);
 
+                    
                     await botClient.SendTextMessageAsync(
                         chatId: message.Chat.Id,
-                        text: $"Вы написали: {messageText}",
+                        text: $"Ваше обращение было направлено в раздел: {messageResponseDto.ServiceName}" +
+                              $"\nВозможное решение: {messageResponseDto.RecommendedActions}",
                         cancellationToken: cancellationToken
                     );
                 }

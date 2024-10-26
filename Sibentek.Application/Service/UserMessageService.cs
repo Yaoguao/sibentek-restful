@@ -32,19 +32,21 @@ public class UserMessageService : IUserMessageService
             Topic = @_userMessageRequestDto.Message,
         };
         var res = MLModel1.Predict(sampleData);
+        Console.WriteLine(res.Score.Max() * 100 + " " + res.PredictedLabel);
 
-        Console.WriteLine("Log ml: " + res.PredictedLabel);
-        Console.WriteLine("Log ml: " + res.Score[0] * 100);
+        if (res.Score.Max() * 100 < 40) res.PredictedLabel = "Не определено";
+
 
         var sampleDataSol = new ModelSolution.ModelInput()
         {
             Col0 = @_userMessageRequestDto.Message,
         };
         var resSol = ModelSolution.Predict(sampleDataSol);
-
-        Console.WriteLine("Log ml: " + resSol.PredictedLabel);
-        Console.WriteLine("Log ml: " + resSol.Score[0] * 100);
-
+        
+        if (resSol.Score.Max() * 100 < 4) resSol.PredictedLabel = "Не определено";
+        
+        
+        
         MessageResponseDTO messageResponseDto = 
             new MessageResponseDTO(name, res.PredictedLabel, resSol.PredictedLabel);
         return messageResponseDto;
