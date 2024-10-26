@@ -28,6 +28,7 @@ namespace Sibentek.DataAccess.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
+                    
 
                     b.HasKey("Id");
 

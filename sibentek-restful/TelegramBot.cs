@@ -11,26 +11,29 @@ namespace sibentek_restful
 
     public class TelegramBot
     {
-        private ITelegramBotClient botClient;
+        private ITelegramBotClient _botClient;
         
-        private readonly ITelegramBotService _telegramBotService = new TelegramBotService();
-        
+        private readonly IServiceProvider _serviceProvider;
 
-        public TelegramBot(string token)
+        public TelegramBot(ITelegramBotClient botClient, IServiceProvider serviceProvider)
         {
-            botClient = new TelegramBotClient(token);
+            _botClient = botClient;
+            _serviceProvider = serviceProvider;
 
-            // Получаем информацию о боте
-            var me = botClient.GetMeAsync().Result;
+            InitializeBot();
+        }
+
+        private void InitializeBot()
+        {
+            var me = _botClient.GetMeAsync().Result;
             Console.WriteLine($"Bot {me.FirstName} is running...");
 
-            // Настройка приемника сообщений
             var receiverOptions = new ReceiverOptions
             {
                 AllowedUpdates = Array.Empty<UpdateType>()
             };
 
-            botClient.StartReceiving(
+            _botClient.StartReceiving(
                 updateHandler: HandleUpdateAsync,
                 pollingErrorHandler: HandlePollingErrorAsync,
                 receiverOptions: receiverOptions,
@@ -42,38 +45,38 @@ namespace sibentek_restful
 
         private async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
-            if (update.Message is not { } message)
+            if (update.Message is not { } message || message.Text is not { } messageText)
                 return;
 
-            if (message.Text is not { } messageText)
-                return;
-            
-            if (messageText.Equals("/start", StringComparison.OrdinalIgnoreCase))
+            using (var scope = _serviceProvider.CreateScope())
             {
-                await botClient.SendTextMessageAsync(
-                    chatId: message.Chat.Id,
-                    text: $"Добро пожаловать, {message.Chat.FirstName}! Я ваш консультант. Чем могу помочь?",
-                    cancellationToken: cancellationToken
-                );
-            } 
-            else
-            {
-                Console.WriteLine(message.Chat?.FirstName ?? "DefaultFirstName");
-                Console.WriteLine(messageText);
-                UserMessageRequestDTO userMessageRequestDto = new UserMessageRequestDTO(
-                    message.Chat?.FirstName ?? "DefaultFirstName",
-                    message.Chat?.Username ?? "DefaultUsername",
-                    messageText,
-                    message.Date
-                );
-                MessageResponseDTO messageResponseDto = _telegramBotService.CreateMessageResult(userMessageRequestDto);
-                
-                await botClient.SendTextMessageAsync(
-                    chatId: message.Chat.Id,
-                    text: $"Вы написали: {messageText}",
-                    cancellationToken: cancellationToken
-                    
-                );
+                var userMessageService = scope.ServiceProvider.GetRequiredService<IUserMessageService>();
+
+                if (messageText.Equals("/start", StringComparison.OrdinalIgnoreCase))
+                {
+                    await botClient.SendTextMessageAsync(
+                        chatId: message.Chat.Id,
+                        text: $"Добро пожаловать, {message.Chat.FirstName}! Я ваш консультант. Чем могу помочь?",
+                        cancellationToken: cancellationToken
+                    );
+                }
+                else
+                {
+                    var userMessageRequestDto = new UserMessageRequestDTO(
+                        message.Chat?.FirstName ?? "DefaultFirstName",
+                        message.Chat?.Username ?? "DefaultUsername",
+                        messageText,
+                        message.Date
+                    );
+
+                    var messageResponseDto = userMessageService.CreateMessageResult(userMessageRequestDto);
+
+                    await botClient.SendTextMessageAsync(
+                        chatId: message.Chat.Id,
+                        text: $"Вы написали: {messageText}",
+                        cancellationToken: cancellationToken
+                    );
+                }
             }
         }
 

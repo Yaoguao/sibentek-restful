@@ -2,7 +2,7 @@
 
 namespace Sibentek.Core.Interface;
 
-public interface ITelegramBotService
+public interface IUserMessageService
 {
     MessageResponseDTO CreateMessageResult(UserMessageRequestDTO _userMessageRequestDto);
 }
