@@ -15,6 +15,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Sibentek.Application\Sibentek.Application.csproj" />
+      <ProjectReference Include="..\Sibentek.Core\Sibentek.Core.csproj" />
     </ItemGroup>
 
 </Project>
