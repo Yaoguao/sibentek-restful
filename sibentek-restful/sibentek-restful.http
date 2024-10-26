@@ -1,0 +1,6 @@
+@sibentek_restful_HostAddress = http://localhost:5217
+
+GET {{sibentek_restful_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

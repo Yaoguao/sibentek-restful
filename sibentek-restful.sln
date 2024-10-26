@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sibentek-restful", "sibentek-restful\sibentek-restful.csproj", "{E1C09C6A-616B-4E4B-AC3C-0B2BE3202798}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sibentek.Application", "Sibentek.Application\Sibentek.Application.csproj", "{BE3A4555-5D21-4E50-9FC8-642DE807F68C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sibentek.Core", "Sibentek.Core\Sibentek.Core.csproj", "{C114F089-75C3-4536-9CE1-E62B5D1756A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1C09C6A-616B-4E4B-AC3C-0B2BE3202798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1C09C6A-616B-4E4B-AC3C-0B2BE3202798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1C09C6A-616B-4E4B-AC3C-0B2BE3202798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1C09C6A-616B-4E4B-AC3C-0B2BE3202798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE3A4555-5D21-4E50-9FC8-642DE807F68C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE3A4555-5D21-4E50-9FC8-642DE807F68C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE3A4555-5D21-4E50-9FC8-642DE807F68C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE3A4555-5D21-4E50-9FC8-642DE807F68C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C114F089-75C3-4536-9CE1-E62B5D1756A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C114F089-75C3-4536-9CE1-E62B5D1756A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C114F089-75C3-4536-9CE1-E62B5D1756A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C114F089-75C3-4536-9CE1-E62B5D1756A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
