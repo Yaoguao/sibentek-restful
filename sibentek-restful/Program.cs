@@ -20,6 +20,15 @@ var res = MLModel1.Predict(sampleData);
 
 Console.WriteLine("Log ml: " + res.PredictedLabel);
 Console.WriteLine("Log ml: " + res.Score[0] * 100);
+
+var sampleDataSol = new ModelSolution.ModelInput()
+{
+    Col0 = @"My Sony PlayStation does not turn on. It makes strange noises and the LED on its front panel blinks twice.",
+};
+var resSol = ModelSolution.Predict(sampleDataSol);
+
+Console.WriteLine("Log ml: " + resSol.PredictedLabel);
+Console.WriteLine("Log ml: " + resSol.Score[0] * 100);
 // log
 
 var app = builder.Build();
